@@ -1,1 +1,1 @@
-export const base_url = "https://ziggystore-app.herokuapp.com";
+export const base_url = "https://ziggystore.herokuapp.com";

@@ -1,1 +1,1 @@
-export const base_url = process.env.REACT_APP_BASE_URL;
+export const base_url = "https://ziggystore-app.herokuapp.com";

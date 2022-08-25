@@ -16,6 +16,7 @@ import { Store } from "../Store";
 import SearchBox from "./SearchBox";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { CgLogIn } from "react-icons/cg";
+import { base_url } from "../services/index.js";
 
 const MenuList = () => {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -43,7 +44,7 @@ const MenuList = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const { data } = await axios.get(`/api/products/categories`);
+        const { data } = await axios.get(`${base_url}/api/products/categories`);
         setCategories(data);
       } catch (err) {
         toast.error(getError(err));

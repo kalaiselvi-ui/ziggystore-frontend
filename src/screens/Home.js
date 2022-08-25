@@ -11,6 +11,7 @@ import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { Row, Col, Container } from "react-bootstrap";
 import Slider from "react-slick";
+import { base_url } from "../services/index";
 
 const config = {
   loop: true,
@@ -72,7 +73,7 @@ const Home = () => {
     const fetchData = async () => {
       dispatch({ type: "FETCH_REQUEST" });
       try {
-        const result = await axios.get("/api/products");
+        const result = await axios.get(`${base_url}/api/products`);
         dispatch({ type: "FETCH_SUCCESS", payload: result.data });
       } catch (err) {
         dispatch({ type: "FETCH_FAIL", payload: err.message });

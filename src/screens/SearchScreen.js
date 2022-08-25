@@ -1,23 +1,23 @@
-import React, { useReducer, useState, useEffect } from 'react'
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import axios from 'axios';
-import { toast } from 'react-toastify';
-import getError from '../utils.js';
-import { Helmet } from 'react-helmet-async';
-import Rating from '../components/Rating';
-import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MessageBox';
-import Product from '../components/Product';
-import { Row, Col, Button, Container } from 'react-bootstrap'
-import { LinkContainer } from 'react-router-bootstrap';
-import MenuList from '../components/Navbar.js';
-
+import React, { useReducer, useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
+import getError from "../utils.js";
+import { Helmet } from "react-helmet-async";
+import Rating from "../components/Rating";
+import LoadingBox from "../components/LoadingBox";
+import MessageBox from "../components/MessageBox";
+import Product from "../components/Product";
+import { Row, Col, Button, Container } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
+import MenuList from "../components/Navbar.js";
+import { base_url } from "../services/index.js";
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'FETCH_REQUEST':
+    case "FETCH_REQUEST":
       return { ...state, loading: true };
-    case 'FETCH_SUCCESS':
+    case "FETCH_SUCCESS":
       return {
         ...state,
         products: action.payload.products,
@@ -26,7 +26,7 @@ const reducer = (state, action) => {
         countProducts: action.payload.countProducts,
         loading: false,
       };
-    case 'FETCH_FAIL':
+    case "FETCH_FAIL":
       return { ...state, loading: false, error: action.payload };
 
     default:
@@ -36,37 +36,37 @@ const reducer = (state, action) => {
 
 const prices = [
   {
-    name: '$1 to $50',
-    value: '1-50',
+    name: "$1 to $50",
+    value: "1-50",
   },
   {
-    name: '$51 to $200',
-    value: '51-200',
+    name: "$51 to $200",
+    value: "51-200",
   },
   {
-    name: '$201 to $1000',
-    value: '201-1000',
+    name: "$201 to $1000",
+    value: "201-1000",
   },
 ];
 
 export const ratings = [
   {
-    name: '4stars & up',
+    name: "4stars & up",
     rating: 4,
   },
 
   {
-    name: '3stars & up',
+    name: "3stars & up",
     rating: 3,
   },
 
   {
-    name: '2stars & up',
+    name: "2stars & up",
     rating: 2,
   },
 
   {
-    name: '1stars & up',
+    name: "1stars & up",
     rating: 1,
   },
 ];
@@ -75,29 +75,29 @@ const SearchScreen = () => {
   const navigate = useNavigate();
   const { search } = useLocation();
   const sp = new URLSearchParams(search); // /search?category=Shirts
-  const category = sp.get('category') || 'all';
-  const query = sp.get('query') || 'all';
-  const price = sp.get('price') || 'all';
-  const rating = sp.get('rating') || 'all';
-  const order = sp.get('order') || 'newest';
-  const page = sp.get('page') || 1;
+  const category = sp.get("category") || "all";
+  const query = sp.get("query") || "all";
+  const price = sp.get("price") || "all";
+  const rating = sp.get("rating") || "all";
+  const order = sp.get("order") || "newest";
+  const page = sp.get("page") || 1;
 
   const [{ loading, error, products, pages, countProducts }, dispatch] =
     useReducer(reducer, {
       loading: true,
-      error: '',
+      error: "",
     });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(
-          `/api/products/search?page=${page}&query=${query}&category=${category}&price=${price}&rating=${rating}&order=${order}`
+          `${base_url}/api/products/search?page=${page}&query=${query}&category=${category}&price=${price}&rating=${rating}&order=${order}`
         );
-        dispatch({ type: 'FETCH_SUCCESS', payload: data });
+        dispatch({ type: "FETCH_SUCCESS", payload: data });
       } catch (err) {
         dispatch({
-          type: 'FETCH_FAIL',
+          type: "FETCH_FAIL",
           payload: getError(error),
         });
       }
@@ -109,7 +109,7 @@ const SearchScreen = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const { data } = await axios.get(`/api/products/categories`);
+        const { data } = await axios.get(`${base_url}/api/products/categories`);
         setCategories(data);
       } catch (err) {
         toast.error(getError(err));
@@ -142,8 +142,8 @@ const SearchScreen = () => {
               <ul>
                 <li>
                   <Link
-                    className={'all' === category ? 'text-bold' : ''}
-                    to={getFilterUrl({ category: 'all' })}
+                    className={"all" === category ? "text-bold" : ""}
+                    to={getFilterUrl({ category: "all" })}
                   >
                     Any
                   </Link>
@@ -151,7 +151,7 @@ const SearchScreen = () => {
                 {categories.map((c) => (
                   <li key={c}>
                     <Link
-                      className={c === category ? 'text-bold' : ''}
+                      className={c === category ? "text-bold" : ""}
                       to={getFilterUrl({ category: c })}
                     >
                       {c}
@@ -165,8 +165,8 @@ const SearchScreen = () => {
               <ul>
                 <li>
                   <Link
-                    className={'all' === price ? 'text-bold' : ''}
-                    to={getFilterUrl({ price: 'all' })}
+                    className={"all" === price ? "text-bold" : ""}
+                    to={getFilterUrl({ price: "all" })}
                   >
                     Any
                   </Link>
@@ -175,7 +175,7 @@ const SearchScreen = () => {
                   <li key={p.value}>
                     <Link
                       to={getFilterUrl({ price: p.value })}
-                      className={p.value === price ? 'text-bold' : ''}
+                      className={p.value === price ? "text-bold" : ""}
                     >
                       {p.name}
                     </Link>
@@ -190,18 +190,20 @@ const SearchScreen = () => {
                   <li key={r.name}>
                     <Link
                       to={getFilterUrl({ rating: r.rating })}
-                      className={`${r.rating}` === `${rating}` ? 'text-bold' : ''}
+                      className={
+                        `${r.rating}` === `${rating}` ? "text-bold" : ""
+                      }
                     >
-                      <Rating caption={' & up'} rating={r.rating}></Rating>
+                      <Rating caption={" & up"} rating={r.rating}></Rating>
                     </Link>
                   </li>
                 ))}
                 <li>
                   <Link
-                    to={getFilterUrl({ rating: 'all' })}
-                    className={rating === 'all' ? 'text-bold' : ''}
+                    to={getFilterUrl({ rating: "all" })}
+                    className={rating === "all" ? "text-bold" : ""}
                   >
-                    <Rating caption={' & up'} rating={0}></Rating>
+                    <Rating caption={" & up"} rating={0}></Rating>
                   </Link>
                 </li>
               </ul>
@@ -217,18 +219,18 @@ const SearchScreen = () => {
                 <Row className="justify-content-between mb-3">
                   <Col md={6}>
                     <div>
-                      {countProducts === 0 ? 'No' : countProducts} Results
-                      {query !== 'all' && ' : ' + query}
-                      {category !== 'all' && ' : ' + category}
-                      {price !== 'all' && ' : Price ' + price}
-                      {rating !== 'all' && ' : Rating ' + rating + ' & up'}
-                      {query !== 'all' ||
-                        category !== 'all' ||
-                        rating !== 'all' ||
-                        price !== 'all' ? (
+                      {countProducts === 0 ? "No" : countProducts} Results
+                      {query !== "all" && " : " + query}
+                      {category !== "all" && " : " + category}
+                      {price !== "all" && " : Price " + price}
+                      {rating !== "all" && " : Rating " + rating + " & up"}
+                      {query !== "all" ||
+                      category !== "all" ||
+                      rating !== "all" ||
+                      price !== "all" ? (
                         <Button
                           variant="light"
-                          onClick={() => navigate('/search')}
+                          onClick={() => navigate("/search")}
                         >
                           <i className="fas fa-times-circle"></i>
                         </Button>
@@ -236,7 +238,7 @@ const SearchScreen = () => {
                     </div>
                   </Col>
                   <Col className="text-end">
-                    Sort by{' '}
+                    Sort by{" "}
                     <select
                       value={order}
                       onChange={(e) => {
@@ -270,7 +272,7 @@ const SearchScreen = () => {
                       to={getFilterUrl({ page: x + 1 })}
                     >
                       <Button
-                        className={Number(page) === x + 1 ? 'text-bold' : ''}
+                        className={Number(page) === x + 1 ? "text-bold" : ""}
                         variant="light"
                       >
                         {x + 1}
@@ -283,9 +285,8 @@ const SearchScreen = () => {
           </Col>
         </Row>
       </Container>
-
     </div>
-  )
-}
+  );
+};
 
-export default SearchScreen
+export default SearchScreen;

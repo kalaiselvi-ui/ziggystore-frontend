@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import { Button, Container } from "react-bootstrap";
 import { Store } from "../Store";
 import MenuList from "../components/Navbar";
+import { base_url } from "../services/index";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -60,7 +61,7 @@ const UserListScreen = () => {
     const fetchData = async () => {
       try {
         dispatch({ type: "FETCH_REQUEST" });
-        const { data } = await axios.get(`/api/users`, {
+        const { data } = await axios.get(`${base_url}/api/users`, {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         });
         dispatch({ type: "FETCH_SUCCESS", payload: data });
@@ -82,7 +83,7 @@ const UserListScreen = () => {
     if (window.confirm("Are you sure to delete?")) {
       try {
         dispatch({ type: "DELETE_REQUEST" });
-        await axios.delete(`/api/users/${user._id}`, {
+        await axios.delete(`${base_url}/api/users/${user._id}`, {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         });
         toast.success("user deleted successfully");

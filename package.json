@@ -24,7 +24,6 @@
     "slick-carousel": "^1.8.1",
     "swiper": "^8.3.2",
     "underscore": "^1.13.4",
-    "use-reducer-logger": "^1.0.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

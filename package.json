@@ -26,6 +26,10 @@
     "underscore": "^1.13.4",
     "web-vitals": "^2.1.4"
   },
+  "engines": {
+    "node": "16.17.0",
+    "npm": "8.18.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

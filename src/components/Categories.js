@@ -7,7 +7,7 @@ const settings = {
   dots: false,
   loop: true,
   infinite: true,
-  autoplay: true,
+  // autoplay: true,
   autoplaySpeed: 3000,
   slidesToShow: 10,
   slidesToScroll: 1,
@@ -59,7 +59,7 @@ const Categories = () => {
         </Link>
         <Link to="/products">
           <img
-            src={process.env.PUBLIC_URL + "/images/cate-1.jpeg"}
+            src={process.env.PUBLIC_URL + "/images/cate-6.png"}
             alt="product"
           />
         </Link>
@@ -86,7 +86,7 @@ const Categories = () => {
             alt="product"
           />
         </Link>
-        <Link to="/products">
+        {/* <Link to="/products">
           <img
             src={process.env.PUBLIC_URL + "/images/homeappliance.png"}
             alt="product"
@@ -103,8 +103,8 @@ const Categories = () => {
             src={process.env.PUBLIC_URL + "/images/toys.png"}
             alt="product"
           />
-        </Link>
-        <Link to="/products">
+        </Link> */}
+        {/* <Link to="/products">
           <img
             src={process.env.PUBLIC_URL + "/images/television.png"}
             alt="product"
@@ -115,7 +115,7 @@ const Categories = () => {
             src={process.env.PUBLIC_URL + "/images/baby.png"}
             alt="product"
           />
-        </Link>
+        </Link> */}
       </Slider>
 
       <div className="sub-banner my-4">

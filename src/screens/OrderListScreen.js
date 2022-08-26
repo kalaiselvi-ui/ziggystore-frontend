@@ -152,7 +152,7 @@ const OrderListScreen = () => {
                       type="button"
                       variant="primary"
                       onClick={() => {
-                        navigate(`${base_url}/order/${order._id}`);
+                        navigate(`/order/${order._id}`);
                       }}
                     >
                       Details
@@ -175,7 +175,7 @@ const OrderListScreen = () => {
               <Link
                 className={x + 1 === Number(page) ? "btn text-bold" : "btn"}
                 key={x + 1}
-                to={`${base_url}/admin/orders?page=${x + 1}`}
+                to={`/admin/orders?page=${x + 1}`}
               >
                 {x + 1}
               </Link>

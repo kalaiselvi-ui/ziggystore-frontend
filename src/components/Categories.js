@@ -47,45 +47,39 @@ const Categories = () => {
       <Slider {...settings} className="categories-item">
         <Link to="/products">
           <img
-            src={process.env.PUBLIC_URL + "/images/laptop.png"}
+            src={process.env.PUBLIC_URL + "/images/cate-4.png"}
             alt="product"
           />
         </Link>
         <Link to="/products">
           <img
-            src={process.env.PUBLIC_URL + "/images/mobiles.png"}
+            src={process.env.PUBLIC_URL + "/images/cate-4.png"}
             alt="product"
           />
         </Link>
         <Link to="/products">
           <img
-            src={process.env.PUBLIC_URL + "/images/cate-6.png"}
-            alt="product"
-          />
-        </Link>
-        <img src={process.env.PUBLIC_URL + "/images/shoes.png"} alt="product" />
-        <Link to="/products">
-          <img
-            src={process.env.PUBLIC_URL + "/images/schoolbag.png"}
-            alt="product"
-          />
-        </Link>
-        <Link to="/products">
-          <img
-            src={process.env.PUBLIC_URL + "/images/electronics.png"}
+            src={process.env.PUBLIC_URL + "/images/cate-4.png"}
             alt="product"
           />
         </Link>
         <img
-          src={process.env.PUBLIC_URL + "/images/fragrance.png"}
+          src={process.env.PUBLIC_URL + "/images/cate-4.png"}
           alt="product"
         />
         <Link to="/products">
           <img
-            src={process.env.PUBLIC_URL + "/images/home-decor.png"}
+            src={process.env.PUBLIC_URL + "/images/cate-4.png"}
             alt="product"
           />
         </Link>
+        <Link to="/products">
+          <img
+            src={process.env.PUBLIC_URL + "/images/cate-4.png"}
+            alt="product"
+          />
+        </Link>
+
         {/* <Link to="/products">
           <img
             src={process.env.PUBLIC_URL + "/images/homeappliance.png"}

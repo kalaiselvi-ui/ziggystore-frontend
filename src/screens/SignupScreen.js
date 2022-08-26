@@ -54,11 +54,11 @@ export default function SignupScreen() {
   return (
     <>
       <MenuList />
-      <Container className="small-container">
+      <Container className="small-container signup-form mt-3">
         <Helmet>
           <title>Sign Up</title>
         </Helmet>
-        <h1 className="my-3">Sign Up</h1>
+        <h1 className="my-3 text-center">Sign Up</h1>
         <Form onSubmit={submitHandler}>
           <Form.Group className="mb-3" controlId="name">
             <Form.Label>Name</Form.Label>
@@ -90,7 +90,7 @@ export default function SignupScreen() {
             </Form.Group>
           </Form.Group>
           <div className="mb-3">
-            <Button type="submit" variant="warning">
+            <Button type="submit" variant="warning" style={{ width: "100%" }}>
               Sign Up
             </Button>
           </div>

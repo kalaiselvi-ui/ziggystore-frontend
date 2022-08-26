@@ -50,11 +50,11 @@ const SigninScreen = () => {
   return (
     <>
       <MenuList />
-      <Container className="small-container">
+      <Container className="small-container signup-form mt-3">
         <Helmet>
           <title>Sign In</title>
         </Helmet>
-        <h1 className="my-3">Sign In</h1>
+        <h1 className="my-3 text-center">Sign In</h1>
         <Form onSubmit={submitHandler}>
           <Form.Group className="mb-3" controlId="email">
             <Form.Label>Email</Form.Label>
@@ -72,7 +72,7 @@ const SigninScreen = () => {
               onChange={(e) => setPassword(e.target.value)}
             ></Form.Control>
             <div className="my-3">
-              <Button type="submit" variant="warning">
+              <Button type="submit" variant="warning" style={{ width: "100%" }}>
                 Sign In
               </Button>
             </div>

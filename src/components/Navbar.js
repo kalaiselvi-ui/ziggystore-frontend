@@ -100,32 +100,42 @@ const MenuList = () => {
                 )}
               </Link>
               {userInfo ? (
-                <NavDropdown
-                  title={userInfo.name}
-                  id="basic-nav-dropdown"
-                  variant="dark"
-                  show={show}
-                  onMouseEnter={showDropdown}
-                  onMouseLeave={hideDropdown}
-                >
-                  <LinkContainer to="/profile">
-                    <NavDropdown.Item>User Profile</NavDropdown.Item>
-                  </LinkContainer>
-                  <LinkContainer to="/orderhistory">
-                    <NavDropdown.Item>Order History</NavDropdown.Item>
-                  </LinkContainer>
-                  <NavDropdown.Divider />
-                  <Link
-                    className="dropdown-item"
-                    to="#signout"
-                    onClick={signoutHandler}
+                <>
+                  <img
+                    src={process.env.PUBLIC_URL + "/images/avatar-1.jpg"}
+                    style={{ width: "30px" }}
+                  />
+                  <NavDropdown
+                    title={userInfo.name}
+                    id="basic-nav-dropdown"
+                    variant="dark"
+                    show={show}
+                    onMouseEnter={showDropdown}
+                    onMouseLeave={hideDropdown}
                   >
-                    Sign Out
-                  </Link>
-                </NavDropdown>
+                    <LinkContainer to="/profile">
+                      <NavDropdown.Item>User Profile</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/orderhistory">
+                      <NavDropdown.Item>Order History</NavDropdown.Item>
+                    </LinkContainer>
+                    <NavDropdown.Divider />
+                    <Link
+                      className="dropdown-item"
+                      to="#signout"
+                      onClick={signoutHandler}
+                    >
+                      Sign Out
+                    </Link>
+                  </NavDropdown>
+                </>
               ) : (
                 <Link className="nav-link signIn-btn" to="/signin">
                   <Button variant="outline-warning">
+                    <img
+                      src={process.env.PUBLIC_URL + "/images/avatar.png"}
+                      style={{ width: "30px" }}
+                    />
                     SignIn <CgLogIn style={{ fontSize: "23px" }} />
                   </Button>
                 </Link>

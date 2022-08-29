@@ -18,7 +18,7 @@ const config = {
   infinite: true,
   autoplay: true,
   autoplaySpeed: 2500,
-  slidesToShow: 5,
+  slidesToShow: 6,
   slidesToScroll: 1,
   arrows: true,
   responsive: [
@@ -35,12 +35,20 @@ const config = {
       breakpoint: 600,
       settings: {
         infinite: true,
-        slidesToShow: 2,
+        slidesToShow: 3,
         slidesToScroll: 2,
       },
     },
     {
       breakpoint: 480,
+      settings: {
+        infinite: true,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 320,
       settings: {
         infinite: true,
         slidesToShow: 1,
@@ -88,7 +96,7 @@ const Home = () => {
       <Categories />
       <ErrorBoundary>
         <div className="products" style={{ textAlign: "center" }}>
-          <h1 className="my-3">Featured Products</h1>
+          <h2 className="my-3 main-title">Newest Products</h2>
           {loading ? (
             <LoadingBox />
           ) : error ? (
@@ -98,7 +106,7 @@ const Home = () => {
               <Row>
                 <Slider {...config}>
                   {products.map((product) => (
-                    <Col key={product.slug} className="mb-3">
+                    <Col key={product.slug} className="my-3">
                       <Product product={product}></Product>
                     </Col>
                   ))}

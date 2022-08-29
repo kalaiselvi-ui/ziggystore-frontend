@@ -36,15 +36,15 @@ function Product(props) {
         <Link to={`/product/${product.slug}`}>
           <img
             src={product.image}
-            className="card-img-top"
+            className="card-img-top hover-zoom"
             alt={product.name}
           />
         </Link>
         <Card.Body className="card-details">
           <Link to={`/product/${product.slug}`}>
             <Card.Title>
-              {product.name.length > 23
-                ? `${product.name.substring(0, 23)}...`
+              {product.name.length > 15
+                ? `${product.name.substring(0, 15)}...`
                 : product.name}
             </Card.Title>
           </Link>
@@ -60,6 +60,7 @@ function Product(props) {
             </span>
             $
           </Card.Text>
+
           {product.countInStock === 0 ? (
             <Button variant="danger" className="cart-btn">
               No Stock
@@ -75,6 +76,11 @@ function Product(props) {
             </Button>
           )}
         </Card.Body>
+        <Card.Text>
+          <div class="card-img-overlay d-flex flex-column justify-content-between">
+            <p class="card-text">View Details </p>
+          </div>
+        </Card.Text>
       </Card>
     </>
   );

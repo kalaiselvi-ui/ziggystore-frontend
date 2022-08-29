@@ -6,7 +6,7 @@ const Categories = () => {
   return (
     <>
       <div className="home-category">
-        <h2> Categories</h2>
+        <h2 className="main-title"> Categories</h2>
         <Container>
           <Row className="categories-item">
             <Col md={2} sm={6} xs={6}>
@@ -24,7 +24,7 @@ const Categories = () => {
               <Link to="/products">
                 <div className="category-products">
                   <img
-                    src={process.env.PUBLIC_URL + "/images/cate-4.png"}
+                    src={process.env.PUBLIC_URL + "/images/women-cate1.png"}
                     alt="product"
                   />
                   <span>Dress</span>

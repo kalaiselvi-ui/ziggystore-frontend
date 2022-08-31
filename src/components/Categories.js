@@ -7,148 +7,143 @@ const Categories = () => {
     <>
       <div className="home-category">
         <h2 className="main-title"> Categories</h2>
-        <Container>
-          <Row className="categories-item">
-            <Col md={2} sm={6} xs={6}>
-              <Link to="/products">
-                <div className="category-products">
-                  <img
-                    src={process.env.PUBLIC_URL + "/images/cate-4.png"}
-                    alt="product"
-                  />
-                  <span className="text-center">Tops</span>
-                </div>
-              </Link>
-            </Col>
-            <Col md={2} sm={6} xs={6}>
-              <Link to="/products">
-                <div className="category-products">
-                  <img
-                    src={process.env.PUBLIC_URL + "/images/women-cate1.png"}
-                    alt="product"
-                  />
-                  <span>Dress</span>
-                </div>
-              </Link>
-            </Col>
-            <Col md={2} sm={6} xs={6}>
-              <Link to="/products">
-                <div className="category-products">
-                  <img
-                    src={process.env.PUBLIC_URL + "/images/cate-4.png"}
-                    alt="product"
-                  />
-                  <span>Pants</span>
-                </div>
-              </Link>
-            </Col>
-            <Col md={2} sm={6} xs={6}>
-              <Link to="/products">
-                <div className="category-products">
-                  <img
-                    src={process.env.PUBLIC_URL + "/images/cate-4.png"}
-                    alt="product"
-                  />
-                  <span>T-shirts</span>
-                </div>
-              </Link>
-            </Col>
-            <Col md={2} sm={6} xs={6}>
-              <Link to="/products">
-                <div className="category-products">
-                  <img
-                    src={process.env.PUBLIC_URL + "/images/cate-4.png"}
-                    alt="product"
-                  />
-                  <span>Sports Wear</span>
-                </div>
-              </Link>
-            </Col>
-            <Col md={2} sm={6} xs={6}>
-              <Link to="/products">
-                <div className="category-products">
-                  <img
-                    src={process.env.PUBLIC_URL + "/images/cate-4.png"}
-                    alt="product"
-                  />
-                  <span>Night Wear</span>
-                </div>
-              </Link>
-            </Col>
-          </Row>
-        </Container>
-        <Container>
-          <Row className="categories-item mt-2">
-            <Col md={2} sm={6} xs={6}>
-              <Link to="/products">
-                <div className="category-products">
-                  <img
-                    src={process.env.PUBLIC_URL + "/images/mens-cate.png"}
-                    alt="product"
-                  />
-                  <span className="text-center">Shirts</span>
-                </div>
-              </Link>
-            </Col>
-            <Col md={2} sm={6} xs={6}>
-              <Link to="/products">
-                <div className="category-products">
-                  <img
-                    src={process.env.PUBLIC_URL + "/images/mens-cate.png"}
-                    alt="product"
-                  />
-                  <span>Pants</span>
-                </div>
-              </Link>
-            </Col>
-            <Col md={2} sm={6} xs={6}>
-              <Link to="/products">
-                <div className="category-products">
-                  <img
-                    src={process.env.PUBLIC_URL + "/images/mens-cate.png"}
-                    alt="product"
-                  />
-                  <span>Trouser</span>
-                </div>
-              </Link>
-            </Col>
-            <Col md={2} sm={6} xs={6}>
-              <Link to="/products">
-                <div className="category-products">
-                  <img
-                    src={process.env.PUBLIC_URL + "/images/mens-cate.png"}
-                    alt="product"
-                  />
-                  <span>T-shirts</span>
-                </div>
-              </Link>
-            </Col>
-            <Col md={2} sm={6} xs={6}>
-              <Link to="/products">
-                <div className="category-products">
-                  <img
-                    src={process.env.PUBLIC_URL + "/images/mens-cate.png"}
-                    alt="product"
-                  />
-                  <span>Sports Wear</span>
-                </div>
-              </Link>
-            </Col>
-            <Col md={2} sm={6} xs={6}>
-              <Link to="/products">
-                <div className="category-products">
-                  <img
-                    src={process.env.PUBLIC_URL + "/images/mens-cate.png"}
-                    alt="product"
-                  />
-                  <span>Night Wear</span>
-                </div>
-              </Link>
-            </Col>
-          </Row>
-        </Container>
+        <Row className="categories-item">
+          <Col md={2} sm={6} xs={6}>
+            <Link to="/products">
+              <div className="category-products">
+                <img
+                  src={process.env.PUBLIC_URL + "/images/cate-4.png"}
+                  alt="product"
+                />
+                <span className="text-center">Tops</span>
+              </div>
+            </Link>
+          </Col>
+          <Col md={2} sm={6} xs={6}>
+            <Link to="/products">
+              <div className="category-products">
+                <img
+                  src={process.env.PUBLIC_URL + "/images/women-cate1.png"}
+                  alt="product"
+                />
+                <span>Dress</span>
+              </div>
+            </Link>
+          </Col>
+          <Col md={2} sm={6} xs={6}>
+            <Link to="/products">
+              <div className="category-products">
+                <img
+                  src={process.env.PUBLIC_URL + "/images/cate-4.png"}
+                  alt="product"
+                />
+                <span>Pants</span>
+              </div>
+            </Link>
+          </Col>
+          <Col md={2} sm={6} xs={6}>
+            <Link to="/products">
+              <div className="category-products">
+                <img
+                  src={process.env.PUBLIC_URL + "/images/cate-4.png"}
+                  alt="product"
+                />
+                <span>T-shirts</span>
+              </div>
+            </Link>
+          </Col>
+          <Col md={2} sm={6} xs={6}>
+            <Link to="/products">
+              <div className="category-products">
+                <img
+                  src={process.env.PUBLIC_URL + "/images/cate-4.png"}
+                  alt="product"
+                />
+                <span>Sports Wear</span>
+              </div>
+            </Link>
+          </Col>
+          <Col md={2} sm={6} xs={6}>
+            <Link to="/products">
+              <div className="category-products">
+                <img
+                  src={process.env.PUBLIC_URL + "/images/cate-4.png"}
+                  alt="product"
+                />
+                <span>Night Wear</span>
+              </div>
+            </Link>
+          </Col>
+        </Row>
+        <Row className="categories-item mt-2">
+          <Col md={2} sm={6} xs={6}>
+            <Link to="/products">
+              <div className="category-products">
+                <img
+                  src={process.env.PUBLIC_URL + "/images/mens-cate.png"}
+                  alt="product"
+                />
+                <span className="text-center">Shirts</span>
+              </div>
+            </Link>
+          </Col>
+          <Col md={2} sm={6} xs={6}>
+            <Link to="/products">
+              <div className="category-products">
+                <img
+                  src={process.env.PUBLIC_URL + "/images/mens-cate.png"}
+                  alt="product"
+                />
+                <span>Pants</span>
+              </div>
+            </Link>
+          </Col>
+          <Col md={2} sm={6} xs={6}>
+            <Link to="/products">
+              <div className="category-products">
+                <img
+                  src={process.env.PUBLIC_URL + "/images/mens-cate.png"}
+                  alt="product"
+                />
+                <span>Trouser</span>
+              </div>
+            </Link>
+          </Col>
+          <Col md={2} sm={6} xs={6}>
+            <Link to="/products">
+              <div className="category-products">
+                <img
+                  src={process.env.PUBLIC_URL + "/images/mens-cate.png"}
+                  alt="product"
+                />
+                <span>T-shirts</span>
+              </div>
+            </Link>
+          </Col>
+          <Col md={2} sm={6} xs={6}>
+            <Link to="/products">
+              <div className="category-products">
+                <img
+                  src={process.env.PUBLIC_URL + "/images/mens-cate.png"}
+                  alt="product"
+                />
+                <span>Sports Wear</span>
+              </div>
+            </Link>
+          </Col>
+          <Col md={2} sm={6} xs={6}>
+            <Link to="/products">
+              <div className="category-products">
+                <img
+                  src={process.env.PUBLIC_URL + "/images/mens-cate.png"}
+                  alt="product"
+                />
+                <span>Night Wear</span>
+              </div>
+            </Link>
+          </Col>
+        </Row>
       </div>
-
       <div className="sub-banner my-4">
         <Row>
           <Col md={3} lg={3}>

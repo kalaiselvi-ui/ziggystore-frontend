@@ -32,7 +32,7 @@ function Product(props) {
 
   return (
     <>
-      <Card className="product-card">
+      <Card className="product-card ">
         <Link to={`/product/${product.slug}`}>
           <img
             src={product.image}
@@ -79,13 +79,13 @@ function Product(props) {
             </Button>
           )}
         </Card.Body>
-        <Link to={`/product/${product.slug}`}>
+        {/* <Link to={`/product/${product.slug}`}>
           <Card.Text>
             <div class="card-text-overlay d-flex flex-column justify-content-between">
               <p class="card-text">View Details </p>
             </div>
           </Card.Text>
-        </Link>
+        </Link> */}
       </Card>
     </>
   );

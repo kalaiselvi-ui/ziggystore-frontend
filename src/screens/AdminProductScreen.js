@@ -108,7 +108,7 @@ const AdminProductScreen = () => {
       try {
         dispatch({ type: "CREATE_REQUEST" });
         const { data } = await axios.post(
-          "/api/products",
+          `${base_url}/api/products`,
           {},
           {
             headers: { Authorization: `Bearer ${userInfo.token}` },

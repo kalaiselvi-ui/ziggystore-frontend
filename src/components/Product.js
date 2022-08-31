@@ -7,6 +7,8 @@ import axios from "axios";
 import { useContext } from "react";
 import { Store } from "../Store";
 import { base_url } from "../services/index";
+import { AiFillEye } from "react-icons/ai";
+import { BsCartFill } from "react-icons/bs";
 
 function Product(props) {
   const { product } = props;
@@ -81,8 +83,18 @@ function Product(props) {
         </Card.Body>
         <Link to={`/product/${product.slug}`}>
           <Card.Text>
-            <div class="card-text-overlay d-flex flex-column justify-content-between">
-              <p class="card-text">View Details </p>
+            <div class="hover-icons d-flex flex-row justify-content-between">
+              <Link to={"/cart"}>
+                <BsCartFill
+                  onClick={() => addToCartHandler(product)}
+                  className="cart-btn"
+                  id="add-btn"
+                  variant="warning"
+                />
+              </Link>
+              <Link to={`/product/${product.slug}`}>
+                <AiFillEye />
+              </Link>
             </div>
           </Card.Text>
         </Link>

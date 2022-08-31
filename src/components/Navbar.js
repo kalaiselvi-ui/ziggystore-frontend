@@ -101,10 +101,6 @@ const MenuList = () => {
               </Link>
               {userInfo ? (
                 <>
-                  <img
-                    src={process.env.PUBLIC_URL + "/images/avatar-1.jpg"}
-                    style={{ width: "30px" }}
-                  />
                   <NavDropdown
                     title={userInfo.name}
                     id="basic-nav-dropdown"
@@ -132,10 +128,6 @@ const MenuList = () => {
               ) : (
                 <Link className="nav-link signIn-btn" to="/signin">
                   <Button variant="outline-warning">
-                    <img
-                      src={process.env.PUBLIC_URL + "/images/avatar.png"}
-                      style={{ width: "30px" }}
-                    />
                     SignIn <CgLogIn style={{ fontSize: "23px" }} />
                   </Button>
                 </Link>

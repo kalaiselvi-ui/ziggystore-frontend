@@ -7,6 +7,7 @@ import ErrorBoundary from "../components/ErrorBoundary";
 import Footer from "../components/Footer";
 import MenuList from "../components/Navbar";
 import Product from "../components/Product";
+import SliderProducts from "../components/SliderProducts";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { Row, Col, Container } from "react-bootstrap";
@@ -102,55 +103,57 @@ const Home = () => {
           ) : error ? (
             <MessageBox variant="danger">{error}</MessageBox>
           ) : (
-            <Container>
-              <Row>
-                <Slider {...config}>
-                  {products.map((product) => (
-                    <Col key={product.slug} className="my-3">
-                      <Product product={product}></Product>
-                    </Col>
-                  ))}
-                </Slider>
-              </Row>
-              <Row>
-                {Object.keys(
-                  _.groupBy(products, (product) => product.category)
-                ).map((category) => {
-                  const groupedObj = _.groupBy(
-                    products,
-                    (product) => product.category
-                  );
-                  return (
-                    <>
-                      <p
-                        className="CategoryName my-3"
-                        style={{
-                          fontSize: "18px",
-                          color: "white",
-                          fontWeight: "bold",
-                          textAlign: "center",
-                          backgroundColor: "brown",
-                          padding: "10px",
-                        }}
-                      >
-                        {category}
-                      </p>
-                      {groupedObj[category].slice(0, 4).map((product) => (
-                        <Col
-                          key={product.slug}
-                          sm={6}
-                          md={3}
-                          lg={3}
-                          className="mb-3"
+            <>
+              <Container>
+                <Row>
+                  <Slider {...config}>
+                    {products.map((product) => (
+                      <Col key={product.slug} className="my-3">
+                        <SliderProducts product={product}></SliderProducts>
+                      </Col>
+                    ))}
+                  </Slider>
+                </Row>
+
+                <Row>
+                  {Object.keys(
+                    _.groupBy(products, (product) => product.category)
+                  ).map((category) => {
+                    const groupedObj = _.groupBy(
+                      products,
+                      (product) => product.category
+                    );
+                    return (
+                      <>
+                        <p
+                          className="CategoryName my-3"
+                          style={{
+                            fontSize: "18px",
+                            color: "black",
+                            fontWeight: "bold",
+                            textAlign: "left",
+                            padding: "10px",
+                          }}
                         >
-                          <Product product={product}></Product>
-                        </Col>
-                      ))}
-                    </>
-                  );
-                })}
-              </Row>
-            </Container>
+                          {category}
+                        </p>
+                        {groupedObj[category].slice(0, 4).map((product) => (
+                          <Col
+                            key={product.slug}
+                            sm={6}
+                            md={3}
+                            lg={3}
+                            className="mb-3"
+                          >
+                            <Product product={product}></Product>
+                          </Col>
+                        ))}
+                      </>
+                    );
+                  })}
+                </Row>
+              </Container>
+            </>
           )}
         </div>
       </ErrorBoundary>

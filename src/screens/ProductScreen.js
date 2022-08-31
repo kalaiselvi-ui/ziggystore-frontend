@@ -54,8 +54,15 @@ function ProductScreen() {
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
   const [selectedImage, setSelectedImage] = useState("");
-  const [size, setSize] = useState("");
+  const myArray = ["Moo Moo", "Burt", "Little Kitty", "Juan"];
 
+  const options = myArray.map((item) => {
+    return (
+      <option key={item} value={item}>
+        {item}
+      </option>
+    );
+  });
   const navigate = useNavigate();
   const params = useParams();
   const { slug } = params;
@@ -84,7 +91,7 @@ function ProductScreen() {
   const addToCartHandler = async () => {
     const existItem = cart.cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
-    const { data } = await axios.get(`/api/products/${product._id}`);
+    const { data } = await axios.get(`${base_url}/api/products/${product._id}`);
     if (data.countInStock < quantity) {
       window.alert("Sorry. Product is out of stock");
       return;
@@ -185,8 +192,17 @@ function ProductScreen() {
                       numReviews={product.numReviews}
                     ></Rating>
                   </ListGroup.Item>
-
-                  <ListGroup.Item>Size:</ListGroup.Item>
+                  <ListGroup.Item>
+                    Size:
+                    <Form>
+                      <Form.Group controlId="exampleForm.SelectCustom">
+                        <Form.Label>Custom select</Form.Label>
+                        <Form.Control as="select" custom>
+                          {options}
+                        </Form.Control>
+                      </Form.Group>
+                    </Form>
+                  </ListGroup.Item>
                   <ListGroup.Item>Pirce : ${product.price}</ListGroup.Item>
                   <ListGroup.Item>
                     Description:

@@ -213,12 +213,18 @@ body {
     rgba(20, 46, 233, 1) 100%
   );
 } */
-.category-products {
+.categories-item {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 70%;
 }
 .categories-item a {
   text-decoration: none;
+}
+.category-products img {
+  width: 120px !important;
 }
 .category-products span {
   display: flex;
@@ -227,7 +233,7 @@ body {
   justify-content: center;
   font-weight: bold;
   margin-top: -6px;
-  font-size: 18px;
+  font-size: 16px;
   background: linear-gradient(
     0deg,
     rgba(224, 16, 216, 1) 0%,
@@ -237,12 +243,7 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.categories-item {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
+
 .categories-item img {
   height: auto;
   width: 100%;
@@ -278,36 +279,29 @@ body {
   transition: all 0.2s ease;
   border-radius: calc(0.3rem - 0px);
 }
-.product-card .card-img-top:hover {
-  transform: scale(1.1);
-}
+
 .card-details {
   display: block;
   text-align: left;
   position: relative;
 }
 
-.card-img-overlay > p {
+/* .card-text-overlay > .card-text {
   visibility: hidden;
-  transition: 0.2s ease;
-}
-
-.card:hover .card-img-overlay:hover p {
+  transition: all 0.2s ease;
+} */
+/* 
+.card .card-text-overlay .card-text {
   position: absolute;
   visibility: visible;
-  color: #000;
-  overflow-x: hidden;
-}
-
-.card:hover .card-img-overlay p {
-  font-size: 1.5em;
+  font-size: 1rem;
   letter-spacing: 0.02em;
   width: 100%;
-  padding: 0.5rem;
-  margin: 0.5rem;
   bottom: 0;
-  left: 0;
-}
+  background-color: #000;
+  color: #fff;
+  margin-top: 2rem;
+} */
 .card-details a {
   text-decoration: none;
 }
@@ -365,4 +359,22 @@ body {
 }
 .product-card .card-details p {
   margin: 0 !important;
+}
+.slick-prev {
+  left: 3% !important;
+  z-index: 1;
+}
+.slick-next {
+  right: 3% !important;
+  z-index: 1;
+}
+@media (max-width: 1200px) {
+  .categories-item {
+    width: 100%;
+  }
+}
+@media (min-width: 480px) and (max-width: 768px) {
+  .category-products span {
+    margin-left: -7rem;
+  }
 }

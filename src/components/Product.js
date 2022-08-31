@@ -36,7 +36,7 @@ function Product(props) {
         <Link to={`/product/${product.slug}`}>
           <img
             src={product.image}
-            className="card-img-top hover-zoom"
+            className="card-img-top"
             alt={product.name}
           />
         </Link>
@@ -55,7 +55,10 @@ function Product(props) {
           </Card.Text>
           <Rating rating={product.rating} numReviews={product.numReviews} />
           <Card.Text>
-            <span style={{ fontWeight: "bold", fontSize: "20px" }}>
+            <span
+              style={{ fontWeight: "bold", fontSize: "20px" }}
+              className="mb-2"
+            >
               {product.price}
             </span>
             $
@@ -76,11 +79,13 @@ function Product(props) {
             </Button>
           )}
         </Card.Body>
-        <Card.Text>
-          <div class="card-img-overlay d-flex flex-column justify-content-between">
-            <p class="card-text">View Details </p>
-          </div>
-        </Card.Text>
+        <Link to={`/product/${product.slug}`}>
+          <Card.Text>
+            <div class="card-text-overlay d-flex flex-column justify-content-between">
+              <p class="card-text">View Details </p>
+            </div>
+          </Card.Text>
+        </Link>
       </Card>
     </>
   );

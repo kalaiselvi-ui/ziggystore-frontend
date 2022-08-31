@@ -15,7 +15,7 @@ import Footer from "../components/Footer";
 import Product from "../components/Product";
 import { base_url } from "../services/index";
 
-export default function CartScreen() {
+export default function CartScreen(myArray, item) {
   const navigate = useNavigate();
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const {
@@ -72,7 +72,7 @@ export default function CartScreen() {
                         ></img>{" "}
                         <Link to={`/product/${item.slug}`}>{item.name}</Link>
                         <br />
-                        <span>Size: {item.size}</span>
+                        <span>Size: {myArray.item}</span>
                       </Col>
                       <Col md={3}>
                         <Button

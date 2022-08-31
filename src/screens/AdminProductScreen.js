@@ -193,7 +193,7 @@ const AdminProductScreen = () => {
                         type="button"
                         variant="primary"
                         onClick={() =>
-                          navigate(`${base_url}/admin/product/${product._id}`)
+                          navigate(`/admin/product/${product._id}`)
                         }
                       >
                         Edit

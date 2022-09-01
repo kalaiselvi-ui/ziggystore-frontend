@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useReducer } from "react";
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 import { Helmet } from "react-helmet-async";
 import { useNavigate, useParams } from "react-router-dom";
-import { Row, Col, Card, ListGroup } from "react-bootstrap";
+import { Row, Col, Card, ListGroup, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
@@ -189,6 +189,23 @@ const OrderScreen = () => {
     successPay,
     successDeliver,
   ]);
+  async function deliverOrderHandler() {
+    try {
+      dispatch({ type: "DELIVER_REQUEST" });
+      const { data } = await axios.put(
+        `/api/orders/${order._id}/deliver`,
+        {},
+        {
+          headers: { authorization: `Bearer ${userInfo.token}` },
+        }
+      );
+      dispatch({ type: "DELIVER_SUCCESS", payload: data });
+      toast.success("Order is delivered");
+    } catch (err) {
+      toast.error(getError(err));
+      dispatch({ type: "DELIVER_FAIL" });
+    }
+  }
 
   return (
     <>
@@ -325,6 +342,16 @@ const OrderScreen = () => {
                           </div>
                         )}
                         {loadingPay && <LoadingBox />}
+                      </ListGroup.Item>
+                    )}
+                    {userInfo.isAdmin && order.isPaid && !order.isDelivered && (
+                      <ListGroup.Item>
+                        {loadingDeliver && <LoadingBox></LoadingBox>}
+                        <div className="d-grid">
+                          <Button type="button" onClick={deliverOrderHandler}>
+                            Deliver Order
+                          </Button>
+                        </div>
                       </ListGroup.Item>
                     )}
                   </ListGroup>

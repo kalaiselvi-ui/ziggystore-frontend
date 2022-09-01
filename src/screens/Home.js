@@ -10,9 +10,10 @@ import Product from "../components/Product";
 import SliderProducts from "../components/SliderProducts";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col, Container, Button } from "react-bootstrap";
 import Slider from "react-slick";
 import { base_url } from "../services/index";
+import { Link } from "react-router-dom";
 
 const config = {
   loop: true,
@@ -125,18 +126,33 @@ const Home = () => {
                     );
                     return (
                       <>
-                        <p
-                          className="CategoryName my-3"
-                          style={{
-                            fontSize: "18px",
-                            color: "black",
-                            fontWeight: "bold",
-                            textAlign: "left",
-                            padding: "10px",
-                          }}
-                        >
-                          {category}
-                        </p>
+                        <div className="d-flex justify-content-between">
+                          <p
+                            className="CategoryName"
+                            style={{
+                              fontSize: "18px",
+                              color: "black",
+                              fontWeight: "bold",
+                              textAlign: "left",
+                              padding: "10px",
+                            }}
+                          >
+                            {category}
+                          </p>
+                          <Link to={`/search/?query`}>
+                            <Button
+                              className="mb-3"
+                              variant="warning"
+                              style={{
+                                fontSize: "18px",
+                                color: "black",
+                              }}
+                            >
+                              View All
+                            </Button>
+                          </Link>
+                        </div>
+
                         {groupedObj[category].slice(0, 4).map((product) => (
                           <Col
                             key={product.slug}

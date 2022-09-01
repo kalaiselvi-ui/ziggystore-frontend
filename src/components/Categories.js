@@ -12,7 +12,7 @@ const Categories = () => {
             <Link to="/products">
               <div className="category-products">
                 <img
-                  src={process.env.PUBLIC_URL + "/images/cate-4.png"}
+                  src={process.env.PUBLIC_URL + "/images/w-tops.png"}
                   alt="product"
                 />
                 <span className="text-center">Tops</span>
@@ -23,7 +23,7 @@ const Categories = () => {
             <Link to="/products">
               <div className="category-products">
                 <img
-                  src={process.env.PUBLIC_URL + "/images/women-cate1.png"}
+                  src={process.env.PUBLIC_URL + "/images/w-dress.png"}
                   alt="product"
                 />
                 <span>Dress</span>
@@ -34,7 +34,7 @@ const Categories = () => {
             <Link to="/products">
               <div className="category-products">
                 <img
-                  src={process.env.PUBLIC_URL + "/images/cate-4.png"}
+                  src={process.env.PUBLIC_URL + "/images/w-pant.png"}
                   alt="product"
                 />
                 <span>Pants</span>
@@ -45,7 +45,7 @@ const Categories = () => {
             <Link to="/products">
               <div className="category-products">
                 <img
-                  src={process.env.PUBLIC_URL + "/images/cate-4.png"}
+                  src={process.env.PUBLIC_URL + "/images/w-tshirt.png"}
                   alt="product"
                 />
                 <span>T-shirts</span>
@@ -56,7 +56,7 @@ const Categories = () => {
             <Link to="/products">
               <div className="category-products">
                 <img
-                  src={process.env.PUBLIC_URL + "/images/cate-4.png"}
+                  src={process.env.PUBLIC_URL + "/images/w-sports.png"}
                   alt="product"
                 />
                 <span>Sports Wear</span>
@@ -67,7 +67,7 @@ const Categories = () => {
             <Link to="/products">
               <div className="category-products">
                 <img
-                  src={process.env.PUBLIC_URL + "/images/cate-4.png"}
+                  src={process.env.PUBLIC_URL + "/images/w-night.png"}
                   alt="product"
                 />
                 <span>Night Wear</span>
@@ -80,7 +80,7 @@ const Categories = () => {
             <Link to="/products">
               <div className="category-products">
                 <img
-                  src={process.env.PUBLIC_URL + "/images/mens-cate.png"}
+                  src={process.env.PUBLIC_URL + "/images/m-shirt.png"}
                   alt="product"
                 />
                 <span className="text-center">Shirts</span>
@@ -91,7 +91,7 @@ const Categories = () => {
             <Link to="/products">
               <div className="category-products">
                 <img
-                  src={process.env.PUBLIC_URL + "/images/mens-cate.png"}
+                  src={process.env.PUBLIC_URL + "/images/m-pants.png"}
                   alt="product"
                 />
                 <span>Pants</span>
@@ -102,7 +102,7 @@ const Categories = () => {
             <Link to="/products">
               <div className="category-products">
                 <img
-                  src={process.env.PUBLIC_URL + "/images/mens-cate.png"}
+                  src={process.env.PUBLIC_URL + "/images/m-pants.png"}
                   alt="product"
                 />
                 <span>Trouser</span>
@@ -113,7 +113,7 @@ const Categories = () => {
             <Link to="/products">
               <div className="category-products">
                 <img
-                  src={process.env.PUBLIC_URL + "/images/mens-cate.png"}
+                  src={process.env.PUBLIC_URL + "/images/m-tshirt.png"}
                   alt="product"
                 />
                 <span>T-shirts</span>
@@ -124,7 +124,7 @@ const Categories = () => {
             <Link to="/products">
               <div className="category-products">
                 <img
-                  src={process.env.PUBLIC_URL + "/images/mens-cate.png"}
+                  src={process.env.PUBLIC_URL + "/images/m-sports.png"}
                   alt="product"
                 />
                 <span>Sports Wear</span>
@@ -135,7 +135,7 @@ const Categories = () => {
             <Link to="/products">
               <div className="category-products">
                 <img
-                  src={process.env.PUBLIC_URL + "/images/mens-cate.png"}
+                  src={process.env.PUBLIC_URL + "/images/m-night.png"}
                   alt="product"
                 />
                 <span>Night Wear</span>

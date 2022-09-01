@@ -193,7 +193,7 @@ const OrderScreen = () => {
     try {
       dispatch({ type: "DELIVER_REQUEST" });
       const { data } = await axios.put(
-        `/api/orders/${order._id}/deliver`,
+        `${base_url}/api/orders/${order._id}/deliver`,
         {},
         {
           headers: { authorization: `Bearer ${userInfo.token}` },

@@ -8,28 +8,28 @@ const Banner = () => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src={process.env.PUBLIC_URL + "/images/women-01.jpg"}
+            src={process.env.PUBLIC_URL + "/images/banner-1.jpg"}
             alt="banner"
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src={process.env.PUBLIC_URL + "/images/women-02.jpg"}
+            src={process.env.PUBLIC_URL + "/images/banner-2.png"}
             alt="Second slide"
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src={process.env.PUBLIC_URL + "/images/men-01.png"}
+            src={process.env.PUBLIC_URL + "/images/banner-3.jpg"}
             alt="Third slide"
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src={process.env.PUBLIC_URL + "/images/men-02.jpg"}
+            src={process.env.PUBLIC_URL + "/images/banner-4.jpg"}
             alt="Third slide"
           />
         </Carousel.Item>

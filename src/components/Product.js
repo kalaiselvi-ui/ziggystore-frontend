@@ -45,8 +45,8 @@ function Product(props) {
         <Card.Body className="card-details">
           <Link to={`/product/${product.slug}`}>
             <Card.Title>
-              {product.name.length > 15
-                ? `${product.name.substring(0, 15)}...`
+              {product.name.length > 25
+                ? `${product.name.substring(0, 25)}...`
                 : product.name}
             </Card.Title>
           </Link>

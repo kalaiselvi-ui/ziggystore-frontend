@@ -102,7 +102,7 @@ const Categories = () => {
             <Link to="/products">
               <div className="category-products">
                 <img
-                  src={process.env.PUBLIC_URL + "/images/m-pants.png"}
+                  src={process.env.PUBLIC_URL + "/images/m-shorts.png"}
                   alt="product"
                 />
                 <span>Trouser</span>

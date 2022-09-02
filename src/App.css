@@ -27,7 +27,13 @@ body {
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+/* .home-category {
+  background: linear-gradient(
+    0deg,
+    rgba(217, 154, 194, 1) 0%,
+    rgba(37, 19, 235, 1) 100%
+  );
+} */
 .App-link {
   color: #61dafb;
 }

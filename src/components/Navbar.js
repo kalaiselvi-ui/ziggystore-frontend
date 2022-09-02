@@ -63,93 +63,91 @@ const MenuList = () => {
         }
       >
         <Navbar variant="dark" className="top-navbar" expand="lg">
-          <Container>
-            {/* <Button
-                            variant="dark"
-                            onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
-                        >
-                            <i className="fas fa-bars"></i>
-                        </Button> */}
-            <LinkContainer to="/">
-              <Navbar.Brand className="navbar-brand">
-                <img
-                  src={process.env.PUBLIC_URL + "/images/logo-2.png"}
-                  alt="logo"
-                />
-              </Navbar.Brand>
-            </LinkContainer>
-            <SearchBox />
-            <Nav className="justify-content-end">
-              <Link
-                to="/cart"
-                className="nav-link cart-icon"
-                style={{ color: "#fff" }}
-              >
-                <AiOutlineShoppingCart
-                  className="cart-link"
-                  style={{ fontSize: "30px", color: "#fff" }}
-                />
-                Cart
-                {cart.cartItems.length > 0 && (
-                  <Badge pill bg="danger">
-                    {cart.cartItems.reduce(
-                      (amount, count) => amount + count.quantity,
-                      0
-                    )}
-                  </Badge>
-                )}
-              </Link>
-              {userInfo ? (
-                <>
-                  <NavDropdown
-                    title={userInfo.name}
-                    id="basic-nav-dropdown"
-                    variant="dark"
-                    show={show}
-                    onMouseEnter={showDropdown}
-                    onMouseLeave={hideDropdown}
+          {/* <Button
+              variant="dark"
+              onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
+            >
+              <i className="fas fa-bars"></i>
+            </Button> */}
+          <LinkContainer to="/">
+            <Navbar.Brand className="navbar-brand">
+              <img
+                src={process.env.PUBLIC_URL + "/images/logo-2.png"}
+                alt="logo"
+              />
+            </Navbar.Brand>
+          </LinkContainer>
+          <SearchBox />
+          <Nav className="side-nav-icon">
+            <Link
+              to="/cart"
+              className="nav-link cart-icon"
+              style={{ color: "#fff" }}
+            >
+              <AiOutlineShoppingCart
+                className="cart-link"
+                style={{ fontSize: "30px", color: "#fff" }}
+              />
+              Cart
+              {cart.cartItems.length > 0 && (
+                <Badge pill bg="danger">
+                  {cart.cartItems.reduce(
+                    (amount, count) => amount + count.quantity,
+                    0
+                  )}
+                </Badge>
+              )}
+            </Link>
+            {userInfo ? (
+              <>
+                <NavDropdown
+                  title={userInfo.name}
+                  id="basic-nav-dropdown"
+                  variant="dark"
+                  show={show}
+                  onMouseEnter={showDropdown}
+                  onMouseLeave={hideDropdown}
+                >
+                  <LinkContainer to="/profile">
+                    <NavDropdown.Item>User Profile</NavDropdown.Item>
+                  </LinkContainer>
+                  <LinkContainer to="/orderhistory">
+                    <NavDropdown.Item>Order History</NavDropdown.Item>
+                  </LinkContainer>
+                  <NavDropdown.Divider />
+                  <Link
+                    className="dropdown-item"
+                    to="#signout"
+                    onClick={signoutHandler}
                   >
-                    <LinkContainer to="/profile">
-                      <NavDropdown.Item>User Profile</NavDropdown.Item>
-                    </LinkContainer>
-                    <LinkContainer to="/orderhistory">
-                      <NavDropdown.Item>Order History</NavDropdown.Item>
-                    </LinkContainer>
-                    <NavDropdown.Divider />
-                    <Link
-                      className="dropdown-item"
-                      to="#signout"
-                      onClick={signoutHandler}
-                    >
-                      Sign Out
-                    </Link>
-                  </NavDropdown>
-                </>
-              ) : (
-                <Link className="nav-link signIn-btn" to="/signin">
-                  <Button variant="outline-warning">
-                    SignIn <CgLogIn style={{ fontSize: "23px" }} />
-                  </Button>
-                </Link>
-              )}
-              {userInfo && userInfo.isAdmin && (
-                <NavDropdown title="Admin" id="admin-nav-dropdown">
-                  <LinkContainer to="/admin/dashboard">
-                    <NavDropdown.Item>Dashboard</NavDropdown.Item>
-                  </LinkContainer>
-                  <LinkContainer to="/admin/products">
-                    <NavDropdown.Item>Products</NavDropdown.Item>
-                  </LinkContainer>
-                  <LinkContainer to="/admin/orders">
-                    <NavDropdown.Item>Orders</NavDropdown.Item>
-                  </LinkContainer>
-                  <LinkContainer to="/admin/users">
-                    <NavDropdown.Item>Users</NavDropdown.Item>
-                  </LinkContainer>
+                    Sign Out
+                  </Link>
                 </NavDropdown>
-              )}
-            </Nav>
-          </Container>
+              </>
+            ) : (
+              <Link className="nav-link signIn-btn" to="/signin">
+                <Button variant="outline-warning">
+                  SignIn <CgLogIn style={{ fontSize: "23px" }} />
+                </Button>
+              </Link>
+            )}
+            {userInfo && userInfo.isAdmin && (
+              <NavDropdown title="Admin" id="admin-nav-dropdown">
+                <LinkContainer to="/admin/dashboard">
+                  <NavDropdown.Item>Dashboard</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/admin/products">
+                  <NavDropdown.Item>Products</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/admin/orders">
+                  <NavDropdown.Item>Orders</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/admin/users">
+                  <NavDropdown.Item>Users</NavDropdown.Item>
+                </LinkContainer>
+              </NavDropdown>
+            )}
+          </Nav>
         </Navbar>
         <div
           className={

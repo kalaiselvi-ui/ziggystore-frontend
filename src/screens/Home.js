@@ -14,6 +14,7 @@ import { Row, Col, Container, Button } from "react-bootstrap";
 import Slider from "react-slick";
 import { base_url } from "../services/index";
 import { Link } from "react-router-dom";
+import SubNavbar from "../components/SubNavbar";
 
 const config = {
   loop: true,

@@ -1,15 +1,32 @@
-import React from "react";
-import { Row, Col, Container } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import { base_url } from "../services/index.js";
+import getError from "../utils.js";
+import { Row, Col, Container } from "react-bootstrap";
 
 const Categories = () => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const { data } = await axios.get(`${base_url}/api/products/categories`);
+        setCategories(data);
+      } catch (err) {
+        toast.error(getError(err));
+      }
+    };
+    fetchCategories();
+  }, []);
   return (
     <>
       <div className="home-category">
         <h2 className="main-title"> Categories</h2>
         <Row className="categories-item">
           <Col md={2} sm={6} xs={6}>
-            <Link to="/products">
+            <Link to={`/search?category}`}>
               <div className="category-products">
                 <img
                   src={process.env.PUBLIC_URL + "/images/w-tops.png"}
@@ -20,7 +37,7 @@ const Categories = () => {
             </Link>
           </Col>
           <Col md={2} sm={6} xs={6}>
-            <Link to="/products">
+            <Link to={`/search?category}`}>
               <div className="category-products">
                 <img
                   src={process.env.PUBLIC_URL + "/images/w-dress.png"}
@@ -31,7 +48,7 @@ const Categories = () => {
             </Link>
           </Col>
           <Col md={2} sm={6} xs={6}>
-            <Link to="/products">
+            <Link to={`/search?category}`}>
               <div className="category-products">
                 <img
                   src={process.env.PUBLIC_URL + "/images/w-pant.png"}
@@ -42,7 +59,7 @@ const Categories = () => {
             </Link>
           </Col>
           <Col md={2} sm={6} xs={6}>
-            <Link to="/products">
+            <Link to={`/search?category}`}>
               <div className="category-products">
                 <img
                   src={process.env.PUBLIC_URL + "/images/w-tshirt.png"}
@@ -53,7 +70,7 @@ const Categories = () => {
             </Link>
           </Col>
           <Col md={2} sm={6} xs={6}>
-            <Link to="/products">
+            <Link to={`/search?category}`}>
               <div className="category-products">
                 <img
                   src={process.env.PUBLIC_URL + "/images/w-sports.png"}
@@ -64,7 +81,7 @@ const Categories = () => {
             </Link>
           </Col>
           <Col md={2} sm={6} xs={6}>
-            <Link to="/products">
+            <Link to={`/search?category}`}>
               <div className="category-products">
                 <img
                   src={process.env.PUBLIC_URL + "/images/w-night.png"}
@@ -77,7 +94,7 @@ const Categories = () => {
         </Row>
         <Row className="categories-item mt-2">
           <Col md={2} sm={6} xs={6}>
-            <Link to="/products">
+            <Link to={`/search?category}`}>
               <div className="category-products">
                 <img
                   src={process.env.PUBLIC_URL + "/images/m-shirt.png"}
@@ -88,7 +105,7 @@ const Categories = () => {
             </Link>
           </Col>
           <Col md={2} sm={6} xs={6}>
-            <Link to="/products">
+            <Link to={`/search?category}`}>
               <div className="category-products">
                 <img
                   src={process.env.PUBLIC_URL + "/images/m-pants.png"}
@@ -99,7 +116,7 @@ const Categories = () => {
             </Link>
           </Col>
           <Col md={2} sm={6} xs={6}>
-            <Link to="/products">
+            <Link to={`/search?category}`}>
               <div className="category-products">
                 <img
                   src={process.env.PUBLIC_URL + "/images/m-shorts.png"}
@@ -110,7 +127,7 @@ const Categories = () => {
             </Link>
           </Col>
           <Col md={2} sm={6} xs={6}>
-            <Link to="/products">
+            <Link to={`/search?category}`}>
               <div className="category-products">
                 <img
                   src={process.env.PUBLIC_URL + "/images/m-tshirt.png"}
@@ -121,7 +138,7 @@ const Categories = () => {
             </Link>
           </Col>
           <Col md={2} sm={6} xs={6}>
-            <Link to="/products">
+            <Link to={`/search?category}`}>
               <div className="category-products">
                 <img
                   src={process.env.PUBLIC_URL + "/images/m-sports.png"}
@@ -132,7 +149,7 @@ const Categories = () => {
             </Link>
           </Col>
           <Col md={2} sm={6} xs={6}>
-            <Link to="/products">
+            <Link to={`/search?category}`}>
               <div className="category-products">
                 <img
                   src={process.env.PUBLIC_URL + "/images/m-night.png"}

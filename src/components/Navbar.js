@@ -47,7 +47,7 @@ const MenuList = () => {
         const { data } = await axios.get(`${base_url}/api/products/categories`);
         setCategories(data);
       } catch (err) {
-        // toast.error(getError(err));
+        toast.error(getError(err));
       }
     };
     fetchCategories();

@@ -256,7 +256,7 @@ const SearchScreen = () => {
 
               <Row>
                 {products.map((product) => (
-                  <Col sm={6} lg={4} className="mb-3" key={product._id}>
+                  <Col xs={6} sm={6} lg={4} className="mb-3" key={product._id}>
                     <Product product={product}></Product>
                   </Col>
                 ))}
@@ -271,7 +271,7 @@ const SearchScreen = () => {
                   >
                     <Button
                       className={Number(page) === x + 1 ? "text-bold" : ""}
-                      variant="light"
+                      variant="warning"
                     >
                       {x + 1}
                     </Button>

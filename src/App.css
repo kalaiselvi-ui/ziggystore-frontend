@@ -508,7 +508,7 @@ html {
     padding: 0 2%;
   }
   .navbar-brand img {
-    width: 60px;
+    width: 90px;
   }
   .search-box {
     width: 10px;
@@ -522,7 +522,7 @@ html {
     background-color: transparent !important;
   }
   .side-nav-icon {
-    font-size: 12px;
+    font-size: 13px;
     display: flex;
     flex-direction: row;
   }
@@ -533,9 +533,9 @@ html {
     color: #ffff;
   }
   .cart-link {
-    font-size: 19px !important;
+    font-size: 17px !important;
   }
   .cart-icon {
-    font-size: 19px;
+    font-size: 9px;
   }
 }

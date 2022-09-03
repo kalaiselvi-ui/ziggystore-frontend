@@ -158,6 +158,7 @@ const Home = () => {
                           <Col
                             key={product.slug}
                             sm={6}
+                            xs={6}
                             md={3}
                             lg={3}
                             className="mb-3"

@@ -487,7 +487,18 @@ html {
   .category-products span {
     margin-left: -7rem;
   }
-
+  .product-card {
+    margin-right: 1px;
+  }
+  .card-details {
+    margin: 0;
+    padding: 0;
+  }
+  .hover-icons a {
+    height: 2rem;
+    width: 2rem;
+    line-height: 2rem;
+  }
   .top-navbar {
     display: flex;
     /* justify-content: center; */

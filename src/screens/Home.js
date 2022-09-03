@@ -140,7 +140,7 @@ const Home = () => {
                           >
                             {category}
                           </p>
-                          <Link to={`/search/?query`}>
+                          <Link to={`/search?category=${category}`}>
                             <Button
                               className="mb-3"
                               variant="warning"

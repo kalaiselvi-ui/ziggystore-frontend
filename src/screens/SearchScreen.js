@@ -81,7 +81,6 @@ const SearchScreen = () => {
   const rating = sp.get("rating") || "all";
   const order = sp.get("order") || "newest";
   const page = sp.get("page") || 1;
-
   const [{ loading, error, products, pages, countProducts }, dispatch] =
     useReducer(reducer, {
       loading: true,
@@ -134,60 +133,59 @@ const SearchScreen = () => {
       <Helmet>
         <title>Search Products</title>
       </Helmet>
-      <Container>
-        <Row>
-          <Col md={3}>
-            <h3>Department</h3>
-            <div>
-              <ul>
-                <li>
+      <Row className="filtered-products px-3">
+        <Col md={3}>
+          <h4>Category</h4>
+          <div>
+            <ul className="filter-cate-menu">
+              <li className="filter-list-menu">
+                <Link
+                  className={"all" === category ? "text-bold" : ""}
+                  to={getFilterUrl({ category: "all" })}
+                >
+                  Any
+                </Link>
+              </li>
+              {categories.map((c) => (
+                <li className="filter-list-menu" key={c}>
                   <Link
-                    className={"all" === category ? "text-bold" : ""}
-                    to={getFilterUrl({ category: "all" })}
+                    className={c === category ? "text-bold" : ""}
+                    to={getFilterUrl({ category: c })}
                   >
-                    Any
+                    {c}
                   </Link>
                 </li>
-                {categories.map((c) => (
-                  <li key={c}>
-                    <Link
-                      className={c === category ? "text-bold" : ""}
-                      to={getFilterUrl({ category: c })}
-                    >
-                      {c}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3>Price</h3>
-              <ul>
-                <li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h4>Price</h4>
+            <ul className="filter-cate-menu">
+              <li className="filter-list-menu">
+                <Link
+                  className={"all" === price ? "text-bold" : ""}
+                  to={getFilterUrl({ price: "all" })}
+                >
+                  Any
+                </Link>
+              </li>
+              {prices.map((p) => (
+                <li key={p.value} className="filter-list-menu">
                   <Link
-                    className={"all" === price ? "text-bold" : ""}
-                    to={getFilterUrl({ price: "all" })}
+                    to={getFilterUrl({ price: p.value })}
+                    className={p.value === price ? "text-bold" : ""}
                   >
-                    Any
+                    {p.name}
                   </Link>
                 </li>
-                {prices.map((p) => (
-                  <li key={p.value}>
-                    <Link
-                      to={getFilterUrl({ price: p.value })}
-                      className={p.value === price ? "text-bold" : ""}
-                    >
-                      {p.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
+              ))}
+            </ul>
+          </div>
+          {/* <div>
               <h3>Avg. Customer Review</h3>
-              <ul>
+              <ul className="filter-cate-menu">
                 {ratings.map((r) => (
-                  <li key={r.name}>
+                  <li key={r.name} className="filter-list-menu">
                     <Link
                       to={getFilterUrl({ rating: r.rating })}
                       className={
@@ -198,7 +196,7 @@ const SearchScreen = () => {
                     </Link>
                   </li>
                 ))}
-                <li>
+                <li className="filter-list-menu">
                   <Link
                     to={getFilterUrl({ rating: "all" })}
                     className={rating === "all" ? "text-bold" : ""}
@@ -207,84 +205,83 @@ const SearchScreen = () => {
                   </Link>
                 </li>
               </ul>
-            </div>
-          </Col>
-          <Col md={9}>
-            {loading ? (
-              <LoadingBox></LoadingBox>
-            ) : error ? (
-              <MessageBox variant="danger">{error}</MessageBox>
-            ) : (
-              <>
-                <Row className="justify-content-between mb-3">
-                  <Col md={6}>
-                    <div>
-                      {countProducts === 0 ? "No" : countProducts} Results
-                      {query !== "all" && " : " + query}
-                      {category !== "all" && " : " + category}
-                      {price !== "all" && " : Price " + price}
-                      {rating !== "all" && " : Rating " + rating + " & up"}
-                      {query !== "all" ||
-                      category !== "all" ||
-                      rating !== "all" ||
-                      price !== "all" ? (
-                        <Button
-                          variant="light"
-                          onClick={() => navigate("/search")}
-                        >
-                          <i className="fas fa-times-circle"></i>
-                        </Button>
-                      ) : null}
-                    </div>
-                  </Col>
-                  <Col className="text-end">
-                    Sort by{" "}
-                    <select
-                      value={order}
-                      onChange={(e) => {
-                        navigate(getFilterUrl({ order: e.target.value }));
-                      }}
-                    >
-                      <option value="newest">Newest Arrivals</option>
-                      <option value="lowest">Price: Low to High</option>
-                      <option value="highest">Price: High to Low</option>
-                      <option value="toprated">Avg. Customer Reviews</option>
-                    </select>
-                  </Col>
-                </Row>
-                {products.length === 0 && (
-                  <MessageBox>No Product Found</MessageBox>
-                )}
-
-                <Row>
-                  {products.map((product) => (
-                    <Col sm={6} lg={4} className="mb-3" key={product._id}>
-                      <Product product={product}></Product>
-                    </Col>
-                  ))}
-                </Row>
-
-                <div>
-                  {[...Array(pages).keys()].map((x) => (
-                    <LinkContainer
-                      key={x + 1}
-                      className="mx-1"
-                      to={getFilterUrl({ page: x + 1 })}
-                    >
+            </div> */}
+        </Col>
+        <Col md={9}>
+          {loading ? (
+            <LoadingBox></LoadingBox>
+          ) : error ? (
+            <MessageBox variant="danger">{error}</MessageBox>
+          ) : (
+            <>
+              <Row className="justify-content-between mb-3">
+                <Col md={6}>
+                  <div>
+                    {countProducts === 0 ? "No" : countProducts} Results
+                    {query !== "all" && " : " + query}
+                    {category !== "all" && " : " + category}
+                    {price !== "all" && " : Price " + price}
+                    {rating !== "all" && " : Rating " + rating + " & up"}
+                    {query !== "all" ||
+                    category !== "all" ||
+                    rating !== "all" ||
+                    price !== "all" ? (
                       <Button
-                        className={Number(page) === x + 1 ? "text-bold" : ""}
                         variant="light"
+                        onClick={() => navigate("/search")}
                       >
-                        {x + 1}
+                        <i className="fas fa-times-circle"></i>
                       </Button>
-                    </LinkContainer>
-                  ))}
-                </div>
-              </>
-            )}
-          </Col>
-        </Row>
-      </Container>
+                    ) : null}
+                  </div>
+                </Col>
+                <Col className="text-end">
+                  Sort by{" "}
+                  <select
+                    value={order}
+                    onChange={(e) => {
+                      navigate(getFilterUrl({ order: e.target.value }));
+                    }}
+                  >
+                    <option value="newest">Newest Arrivals</option>
+                    <option value="lowest">Price: Low to High</option>
+                    <option value="highest">Price: High to Low</option>
+                    <option value="toprated">Avg. Customer Reviews</option>
+                  </select>
+                </Col>
+              </Row>
+              {products.length === 0 && (
+                <MessageBox>No Product Found</MessageBox>
+              )}
+
+              <Row>
+                {products.map((product) => (
+                  <Col sm={6} lg={4} className="mb-3" key={product._id}>
+                    <Product product={product}></Product>
+                  </Col>
+                ))}
+              </Row>
+
+              <div>
+                {[...Array(pages).keys()].map((x) => (
+                  <LinkContainer
+                    key={x + 1}
+                    className="mx-1"
+                    to={getFilterUrl({ page: x + 1 })}
+                  >
+                    <Button
+                      className={Number(page) === x + 1 ? "text-bold" : ""}
+                      variant="light"
+                    >
+                      {x + 1}
+                    </Button>
+                  </LinkContainer>
+                ))}
+              </div>
+            </>
+          )}
+        </Col>
+      </Row>
     </div>
   );
 };
